@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- CSS only -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Quiz Page</title>
+</head>
+<body class="bg-black-50">
+    <h3 class="container text-danger my-5">Aşkım ŞimdilikBöyle İdare Et Sınava Kadar Daha Güzel Hale Getirecegim</h3>
+
+
+    <div class="container">
+        <% for(let i = 1; i < quiz.length ; i++){ %> 
+        <div class="card my-5 shadow">
+            <div class="card-body">
+                <h5><%= quiz[i].SoruSayisi %>.Soru ) <%= quiz[i].SoruMetni %></h5>
+                <% if(quiz[i].Cevap1 == quiz[i].DogruCevap){ %>
+                    <p class="card-text"><a href="/quiz/:Cevap1" class="btn btn-success"><%= quiz[i].Cevap1 %></a></p>
+                <% }else{ %>
+                    <p class="card-text"><a href="/quiz/:Cevap1" class="btn btn-warning"><%= quiz[i].Cevap1 %></a></p>
+                <% } %>
+
+                <% if(quiz[i].Cevap2 == quiz[i].DogruCevap){ %>
+                    <p class="card-text"><a href="/quiz/:Cevap2" class="btn btn-success"><%= quiz[i].Cevap2 %></a></p>
+                <% }else{ %>
+                    <p class="card-text"><a href="/quiz/:Cevap2" class="btn btn-warning"><%= quiz[i].Cevap2 %></a></p>
+                <% } %>
+
+                <% if(quiz[i].Cevap3 == quiz[i].DogruCevap){ %>
+                    <p class="card-text"><a href="/quiz/:Cevap3" class="btn btn-success"><%= quiz[i].Cevap3 %></a></p>
+                <% }else{ %>
+                    <p class="card-text"><a href="/quiz/:Cevap3" class="btn btn-warning"><%= quiz[i].Cevap3 %></a></p>
+                <% } %>
+
+                <% if(quiz[i].Cevap4 == quiz[i].DogruCevap){ %>
+                    <p class="card-text"><a href="/quiz/:Cevap4" class="btn btn-success"><%= quiz[i].Cevap4 %></a></p>
+                <% }else{ %>
+                    <p class="card-text"><a href="/quiz/:Cevap4" class="btn btn-warning"><%= quiz[i].Cevap4 %></a></p>
+                <% } %>
+
+
+            </div>
+        </div>
+        <% } %>
+    </div>
+
+    <div class="container">
+        <div>
+            <%   if (pages > 0) { %>
+               
+               <ul class="nav tm-paging-links">
+                   <%  for(let i = 1 ; i <= pages ; i++) { %>
+                     <%  if ( i == current) { %>
+                   <li class="nav-item active"><a href="/quizPage/?page=<%= i %>" class="nav-link tm-paging-link"><%= i %></a></li>
+                       <%   } else if ( i < pages)  {%>
+                   <li class="nav-item"><a href="/quizPage/?page=<%= i %>" class="nav-link tm-paging-link"><%= i %></a></li>
+                       <%   } else { %>
+                           <li class="nav-item"><a href="/quizPage/?page=<%= i %>" class="nav-link tm-paging-link">></a></li>
+                       <%   } %>
+                   
+                   <%   } %>
+               </ul>
+            <%   } %>
+        </div>
+    </div>
+</body>
+</html>
