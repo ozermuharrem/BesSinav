@@ -37,7 +37,7 @@ app.use('/', pageRoute);
 app.use('/quiz', quizRoute);
 
 
-const port = 4545;
+const port = process.env.port || 5000;
 app.listen(port, ()=>{
     console.log('server start'+" "+port);
 })
