@@ -22,41 +22,12 @@
         <div class="card my-5 shadow">
             <div class="card-body">
                 <h5><%= quiz[i].SoruSayisi %>.Soru ) <%= quiz[i].SoruMetni %></h5>
-                <p class="card-text"><button id="<%= quiz[i]._id %>-cvp1" onclick="check('<%= quiz[i].Cevap1 %>' == '<%= quiz[i].DogruCevap %>')" type="button" class=" btn btn-success"><%= quiz[i].Cevap1 %></input></p>
-                <p class="card-text"><button id="<%= quiz[i]._id %>-cvp2" onclick="check('<%= quiz[i].Cevap2 %>' == '<%= quiz[i].DogruCevap %>')" type="button" class="btn btn-success"><%= quiz[i].Cevap2 %></button></p>
-                <p class="card-text"><button id="<%= quiz[i]._id %>-cvp3" onclick="check('<%= quiz[i].Cevap3 %>' == '<%= quiz[i].DogruCevap %>')" type="button" class="btn btn-success"><%= quiz[i].Cevap3 %></button></p>
-                <p class="card-text"><button id="<%= quiz[i]._id %>-cvp4" onclick="check('<%= quiz[i].Cevap4 %>' == '<%= quiz[i].DogruCevap %>')" type="button" class="btn btn-success"><%= quiz[i].Cevap4 %></button></p>
+                <p class="card-text"><button id="<%= quiz[i]._id %>cvp1" onclick="check('<%= quiz[i]._id %>cvp1','<%= quiz[i].Cevap1 %>','<%= quiz[i].DogruCevap %>')" type="button" class="btn btn-warning"><%= quiz[i].Cevap1 %></button></p>
+                <p class="card-text"><button id="<%= quiz[i]._id %>cvp2" onclick="check('<%= quiz[i]._id %>cvp2','<%= quiz[i].Cevap2 %>','<%= quiz[i].DogruCevap %>')" type="button" class="btn btn-warning"><%= quiz[i].Cevap2 %></button></p>
+                <p class="card-text"><button id="<%= quiz[i]._id %>cvp3" onclick="check('<%= quiz[i]._id %>cvp3','<%= quiz[i].Cevap3 %>','<%= quiz[i].DogruCevap %>')" type="button" class="btn btn-warning"><%= quiz[i].Cevap3 %></button></p>
+                <p class="card-text"><button id="<%= quiz[i]._id %>cvp4" onclick="check('<%= quiz[i]._id %>cvp4','<%= quiz[i].Cevap4 %>','<%= quiz[i].DogruCevap %>')" type="button" class="btn btn-warning"><%= quiz[i].Cevap4 %></button></p>
             </div>
         </div>
-        <script>
-       
-            function check(x){
-                let check1 = document.querySelector('#<%= quiz[i]._id %>-cvp1');
-                let check2 = document.querySelector('#<%= quiz[i]._id %>-cvp2');
-                let check3 = document.querySelector('#<%= quiz[i]._id %>-cvp3');
-                let check4 = document.querySelector('#<%= quiz[i]._id %>-cvp4');
-
-                
-                let dizi = [check1,check2,check3,checek4];
-                console.log(dizi[2]);
-                let i;
-                if(x)
-                {
-                    while(dizi[i] != null)
-                    {
-                        if(dizi[i] == x.id)
-                        {
-                            dizi[i].classList.add('bg-info')
-                        }
-                    }
-                    check1.classList.add('bg-danger')
-                }
-                else
-                    check.classList.add('bg-danger')
-            }
-            
-        </script>
-
         <% } %>
     </div>
 
@@ -80,6 +51,26 @@
         </div>
     </div>
 
+    <script>
+
+        function check(quiz,tiklanan,dcevap)
+        {
+            console.log(tiklanan);
+            console.log(dcevap);
+            console.log(quiz)
+
+            boya =  document.getElementById(quiz);
+                
+            if(tiklanan == dcevap)
+            {
+                boya.classList.replace('btn-warning','btn-success')
+            }
+            else{
+                boya.classList.replace('btn-warning','btn-danger')
+            }
+        }
+
+    </script>
 
 
 </body>
