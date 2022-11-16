@@ -33,6 +33,28 @@ exports.getAllQuiz = async (req,res) => {
 }
 
 exports.cevapCheck = async (req,res)=>{
-    const dogruCecap = await Quzi.findById(req.params._id);
-    console.log(req.params._id)
+
+    try {
+        const dogruCevap = await Quzi.findById(req.params._id)
+    
+       
+        if(dogruCevap.DogruCevap == req.params[0])
+            console.log('dogruCevabı Tututn');
+            
+        else
+            console.log('yanlış cebap');
+        
+        console.log(req.params._id)
+    
+        res.redirect('/quizPage', {
+            cevap: dagru
+        });
+        
+    } catch (error) {
+        res.status(400).json({
+            status : 'dogru cevap kontrol',
+            error
+        })
+    }
+    
 }
