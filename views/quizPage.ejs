@@ -11,6 +11,7 @@
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         />
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
       </head>
     <title>Quiz Page</title>
     <style>
@@ -25,7 +26,7 @@
 
     <div class="container">
         <% for(let i = 1; i < quiz.length ; i++){ %> 
-        <div class="card my-5 shadow">
+        <div data-aos="fade-down-right" class="card my-5 shadow">
             <div class="card-body">
                 <h5><%= quiz[i].SoruSayisi %>.Soru ) <%= quiz[i].SoruMetni %></h5>
                 <p class="card-text"><button id="<%= quiz[i]._id %>cvp1" onclick="check('<%= quiz[i]._id %>cvp1','<%= quiz[i].Cevap1 %>','<%= quiz[i].DogruCevap %>')" type="button" class="btn btn-warning animate__animated"><%= quiz[i].Cevap1 %></button></p>
@@ -57,7 +58,11 @@
         </div>
     </div>
 
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init();
 
         function check(quiz,tiklanan,dcevap)
         {
