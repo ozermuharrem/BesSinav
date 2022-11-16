@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const QuizBank = require('../models/quizBank');
 const Quzi = require('../models/quizBank');
 
 
@@ -32,29 +33,40 @@ exports.getAllQuiz = async (req,res) => {
     }
 }
 
-exports.cevapCheck = async (req,res)=>{
+exports.getRandomQuiz = (req,res) => {
+    res.status(200).render('random')
+}
 
+exports.randomQuiz = async (req,res) => {
     try {
-        const dogruCevap = await Quzi.findById(req.params._id)
+        let soruSayisi = req.body.soruSayisi;
+        let randomSayi = [];
+        let numara;
+        for(let i = 0; i <= soruSayisi; i++){
+            numara = Math.ceil(Math.random()*10000)
+            if(numara <= 1175)
+                randomSayi[i] = numara;
+            else
+                i--;
+        }
+        for(let g in randomSayi)
+        console.log(`random sayi oluşturuldu ${randomSayi[g]}`);
+        let randomQuiz = [];
     
-       
-        if(dogruCevap.DogruCevap == req.params[0])
-            console.log('dogruCevabı Tututn');
-            
-        else
-            console.log('yanlış cebap');
-        
-        console.log(req.params._id)
-    
-        res.redirect('/quizPage', {
-            cevap: dagru
-        });
-        
+        for(let x = 0; x < soruSayisi; x++)
+        {
+            randomQuiz[x] = await Quzi.findOne({SoruSayisi : randomSayi[x]})
+        }
+        console.log(randomQuiz);
+        res.status(200).render('random', {
+            randomQuiz
+        })
     } catch (error) {
         res.status(400).json({
-            status : 'dogru cevap kontrol',
+            status : 'fail',
             error
         })
     }
-    
+
+  
 }

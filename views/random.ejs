@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- CSS only -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+     <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      </head>
+    <title>Random Quiz</title>
+    <style>
+        .activ{
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body class="bg-black-50">
+    <h3 class="container text-danger my-5">Bes Emeklilik Sınav Soruları Sınav Hazırlama</h3>
+
+
+    <div class="container">
+
+        <% if(!randomQuiz){ %>
+            <div class="alert alert-danger"> Quiz Oluşturulamadı</div>
+        <% }else{%>
+
+            <% for(let i = 0; i < randomQuiz.length ; i++){ %> 
+            <div data-aos="fade-down-right" class="card my-5 shadow">
+                <div class="card-body">
+                    <h5><%= randomQuiz[i].SoruSayisi %>.Soru ) <%= randomQuiz[i].SoruMetni %></h5>
+                    <p class="card-text"><button id="<%= randomQuiz[i]._id %>cvp1" onclick="check('<%= randomQuiz[i]._id %>cvp1','<%= randomQuiz[i].Cevap1 %>','<%= randomQuiz[i].DogruCevap %>')" type="button" class="btn btn-warning animate__animated"><%= randomQuiz[i].Cevap1 %></button></p>
+                    <p class="card-text"><button id="<%= randomQuiz[i]._id %>cvp2" onclick="check('<%= randomQuiz[i]._id %>cvp2','<%= randomQuiz[i].Cevap2 %>','<%= randomQuiz[i].DogruCevap %>')" type="button" class="btn btn-warning animate__animated"><%= randomQuiz[i].Cevap2 %></button></p>
+                    <p class="card-text"><button id="<%= randomQuiz[i]._id %>cvp3" onclick="check('<%= randomQuiz[i]._id %>cvp3','<%= randomQuiz[i].Cevap3 %>','<%= randomQuiz[i].DogruCevap %>')" type="button" class="btn btn-warning animate__animated"><%= randomQuiz[i].Cevap3 %></button></p>
+                    <p class="card-text"><button id="<%= randomQuiz[i]._id %>cvp4" onclick="check('<%= randomQuiz[i]._id %>cvp4','<%= randomQuiz[i].Cevap4 %>','<%= randomQuiz[i].DogruCevap %>')" type="button" class="btn btn-warning animate__animated"><%= randomQuiz[i].Cevap4 %></button></p>
+                </div>
+            </div>
+            <% } %>
+        <% } %>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        function check(quiz,tiklanan,dcevap)
+        {
+            console.log(tiklanan);
+            console.log(dcevap);
+            console.log(quiz)
+
+            boya =  document.getElementById(quiz);
+                
+            if(tiklanan == dcevap)
+            {
+                boya.classList.replace('btn-warning','btn-success')
+                boya.classList.add('animate__rubberBand')
+            }
+            else{
+                boya.classList.replace('btn-warning','btn-danger')
+                boya.classList.add('animate__shakeX')
+
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

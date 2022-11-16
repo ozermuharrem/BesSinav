@@ -5,7 +5,8 @@ const quizController = require('../controller/quizController');
 
 router.route('/').post(quizController.createQuiz);
 router.route('/quizPage').get(quizController.getAllQuiz);
-router.route('/:_id-*').get(quizController.cevapCheck);
+router.route('/random').post(quizController.randomQuiz);
+router.route('/random').get(quizController.getRandomQuiz);
 
 
 
