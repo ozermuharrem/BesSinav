@@ -14,15 +14,13 @@
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
       </head>
     <title>Random Quiz</title>
-    <style>
-        .activ{
-            background-color: darkorange;
-        }
-    </style>
 </head>
 <body class="bg-black-50">
     <h3 class="container text-danger my-5">Bes Emeklilik Sınav Soruları Sınav Hazırlama</h3>
 
+    <div class="container">
+        <a class="btn btn-primary" href="/"> Ana Sayfa </a>
+    </div>
 
     <div class="container">
 
@@ -33,7 +31,7 @@
             <% for(let i = 0; i < randomQuiz.length ; i++){ %> 
             <div data-aos="fade-down-right" class="card my-5 shadow">
                 <div class="card-body">
-                    <h5><%= randomQuiz[i].SoruSayisi %>.Soru ) <%= randomQuiz[i].SoruMetni %></h5>
+                    <h5><%= i+1 %>.Soru ) <%= randomQuiz[i].SoruMetni %></h5>
                     <p class="card-text"><button id="<%= randomQuiz[i]._id %>cvp1" onclick="check('<%= randomQuiz[i]._id %>cvp1','<%= randomQuiz[i].Cevap1 %>','<%= randomQuiz[i].DogruCevap %>')" type="button" class="btn btn-warning animate__animated"><%= randomQuiz[i].Cevap1 %></button></p>
                     <p class="card-text"><button id="<%= randomQuiz[i]._id %>cvp2" onclick="check('<%= randomQuiz[i]._id %>cvp2','<%= randomQuiz[i].Cevap2 %>','<%= randomQuiz[i].DogruCevap %>')" type="button" class="btn btn-warning animate__animated"><%= randomQuiz[i].Cevap2 %></button></p>
                     <p class="card-text"><button id="<%= randomQuiz[i]._id %>cvp3" onclick="check('<%= randomQuiz[i]._id %>cvp3','<%= randomQuiz[i].Cevap3 %>','<%= randomQuiz[i].DogruCevap %>')" type="button" class="btn btn-warning animate__animated"><%= randomQuiz[i].Cevap3 %></button></p>
