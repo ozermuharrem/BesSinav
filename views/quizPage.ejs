@@ -23,16 +23,19 @@
 <body class="bg-black-50">
     <h3 class="container text-danger my-5">Bes Emeklilik Sınavı App</h3>
 
-
+    <div class="container">
+        <a class="btn btn-primary" href="/"> Ana Sayfa </a>
+    </div>
+    
     <div class="container">
         <% for(let i = 0; i < quiz.length ; i++){ %> 
         <div data-aos="fade-down-right" class="card my-5 shadow">
             <div class="card-body">
                 <h5><%= quiz[i].SoruSayisi %>.Soru ) <%= quiz[i].SoruMetni %></h5>
-                <p class="card-text"><button id="<%= quiz[i]._id %>cvp1" onclick="check('<%= quiz[i]._id %>cvp1','<%= quiz[i].Cevap1 %>','<%= quiz[i].DogruCevap %>')" type="button" class="btn btn-warning animate__animated"><%= quiz[i].Cevap1 %></button></p>
-                <p class="card-text"><button id="<%= quiz[i]._id %>cvp2" onclick="check('<%= quiz[i]._id %>cvp2','<%= quiz[i].Cevap2 %>','<%= quiz[i].DogruCevap %>')" type="button" class="btn btn-warning animate__animated"><%= quiz[i].Cevap2 %></button></p>
-                <p class="card-text"><button id="<%= quiz[i]._id %>cvp3" onclick="check('<%= quiz[i]._id %>cvp3','<%= quiz[i].Cevap3 %>','<%= quiz[i].DogruCevap %>')" type="button" class="btn btn-warning animate__animated"><%= quiz[i].Cevap3 %></button></p>
-                <p class="card-text"><button id="<%= quiz[i]._id %>cvp4" onclick="check('<%= quiz[i]._id %>cvp4','<%= quiz[i].Cevap4 %>','<%= quiz[i].DogruCevap %>')" type="button" class="btn btn-warning animate__animated"><%= quiz[i].Cevap4 %></button></p>
+                <p class="card-text btn <%= quiz[i].Cevap1 == quiz[i].DogruCevap ? 'btn-success' : 'btn-warning'%>"><%= quiz[i].Cevap1 %></p> <br>
+                <p class="card-text btn <%= quiz[i].Cevap2 == quiz[i].DogruCevap ? 'btn-success' : 'btn-warning'%>"><%= quiz[i].Cevap2 %></p> <br>
+                <p class="card-text btn <%= quiz[i].Cevap3 == quiz[i].DogruCevap ? 'btn-success' : 'btn-warning'%>"><%= quiz[i].Cevap3 %></p> <br>
+                <p class="card-text btn <%= quiz[i].Cevap4 == quiz[i].DogruCevap ? 'btn-success' : 'btn-warning'%>"><%= quiz[i].Cevap4 %></p> <br>
             </div>
         </div>
         <% } %>
@@ -63,27 +66,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-
-        function check(quiz,tiklanan,dcevap)
-        {
-            console.log(tiklanan);
-            console.log(dcevap);
-            console.log(quiz)
-
-            boya =  document.getElementById(quiz);
-                
-            if(tiklanan == dcevap)
-            {
-                boya.classList.replace('btn-warning','btn-success')
-                boya.classList.add('animate__rubberBand')
-            }
-            else{
-                boya.classList.replace('btn-warning','btn-danger')
-                boya.classList.add('animate__shakeX')
-
-            }
-        }
-
     </script>
 
 

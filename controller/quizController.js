@@ -51,8 +51,7 @@ exports.randomQuiz = async (req,res) => {
             else
                 i--;
         }
-        for(let g in randomSayi)
-        console.log(`random sayi oluşturuldu ${randomSayi[g]}`);
+
         let randomQuiz = [];
         
         let allQuiz = await Quzi.find();
@@ -62,7 +61,18 @@ exports.randomQuiz = async (req,res) => {
         {
             randomQuiz[x] = allQuiz[randomSayi[x]]
         }
-        console.log(randomQuiz);
+
+        let m = 0;
+        while(m < randomQuiz.length)
+        {
+            randomQuiz[m].Cevap1 = randomQuiz[m].Cevap1.replace("'"," ");
+            randomQuiz[m].Cevap2 = randomQuiz[m].Cevap2.replace("'"," "); 
+            randomQuiz[m].Cevap3 = randomQuiz[m].Cevap3.replace("'"," "); 
+            randomQuiz[m].Cevap4 = randomQuiz[m].Cevap4.replace("'"," "); 
+            randomQuiz[m].DogruCevap = randomQuiz[m].DogruCevap.replace("'"," "); 
+            m++;
+        }
+        
         res.status(200).render('random', {
             randomQuiz
         })
