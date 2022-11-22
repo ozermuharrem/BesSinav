@@ -12,7 +12,12 @@ exports.getQuizPage = async (req,res) => {
         const page = req.query.page || 1; // başlangıç sayfası veya ilk sayfa
         const quizPerPage = 20; // her sayfada bulunacak fotograf sayısı
         const totalQuiz = await QuizBank.find().countDocuments(); // toplam fotograf sayısı
+<<<<<<< HEAD
         const quiz = await QuizBank.find().sort('SoruSayisi')
+=======
+        const quiz = await QuizBank.find()
+        .short('SoruSayisi')
+>>>>>>> fe28be335b5990d76426086448dff431494dcd18
         .skip((page -1 ) * quizPerPage) // pas geçmek için
         .limit(quizPerPage); // her sayfada gösterilecke foğraf sayısı
 
