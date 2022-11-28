@@ -1,0 +1,96 @@
+[{
+  "_id": {
+    "$oid": "638517149f4dde9d30134dbe"
+  },
+  "name": "Bireysel Emeklilik Sistemi Mevzuatı",
+  "slug": "bireysel-emeklilik-sistemi-mevzuati",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638517689f4dde9d30134dc1"
+  },
+  "name": "Finans ve Yatırım - Sayısal",
+  "slug": "finans-ve-yatirim-sayisal",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6385177e9f4dde9d30134dc4"
+  },
+  "name": "Finans ve Yatırım - Sözel",
+  "slug": "finans-ve-yatirim-sozel",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638517959f4dde9d30134dc7"
+  },
+  "name": "Genel Sigortacılık Mevzuatı",
+  "slug": "genel-sigortacilik-mevzuati",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638517a99f4dde9d30134dca"
+  },
+  "name": "Hayat Sigortaları Mevzuatı",
+  "slug": "hayat-sigortalari-mevzuati",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638517bd9f4dde9d30134dcd"
+  },
+  "name": "İlgili Sosyal Güvenlik ve İş Mevzuatı",
+  "slug": "ilgili-sosyal-guvenlik-ve-is-mevzuati",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638517cd9f4dde9d30134dd0"
+  },
+  "name": "İlgili Vergi Mevzuatı",
+  "slug": "ilgili-vergi-mevzuati",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638517ea9f4dde9d30134dd3"
+  },
+  "name": "Katılım Esaslı Bireysel Emeklilik Sistemi",
+  "slug": "katilim-esasli-bireysel-emeklilik-sistemi",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638517fe9f4dde9d30134dd6"
+  },
+  "name": "Katılım Esaslı Genel Konular",
+  "slug": "katilim-esasli-genel-konular",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6385180d9f4dde9d30134dd9"
+  },
+  "name": "Özel Emeklilik Sistemleri",
+  "slug": "ozel-emeklilik-sistemleri",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638518229f4dde9d30134ddc"
+  },
+  "name": "Satış Yönetimi ve Pazarlama",
+  "slug": "satis-yonetimi-ve-pazarlama",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638518369f4dde9d30134ddf"
+  },
+  "name": "Temel İktisat",
+  "slug": "temel-iktisat",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6385184d9f4dde9d30134de2"
+  },
+  "name": "Temel İşletme",
+  "slug": "temel-isletme",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638523215f64d3911fc6e9a4"
+  }
+}]

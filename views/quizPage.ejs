@@ -23,22 +23,36 @@
 <body class="bg-black-50">
     <h3 class="container text-danger my-5">Bes Emeklilik Sınavı App</h3>
 
-    <div class="container">
+    <div class="container my-5">
         <a class="btn btn-primary" href="/"> Ana Sayfa </a>
     </div>
     
     <div class="container">
-        <% for(let i = 0; i < quiz.length ; i++){ %> 
-        <div data-aos="fade-down-right" class="card my-5 shadow">
-            <div class="card-body">
-                <h5><%= quiz[i].SoruSayisi %>.Soru ) <%= quiz[i].SoruMetni %></h5>
-                <p class="card-text btn <%= quiz[i].Cevap1 == quiz[i].DogruCevap ? 'btn-success' : 'btn-warning'%>"><%= quiz[i].Cevap1 %></p> <br>
-                <p class="card-text btn <%= quiz[i].Cevap2 == quiz[i].DogruCevap ? 'btn-success' : 'btn-warning'%>"><%= quiz[i].Cevap2 %></p> <br>
-                <p class="card-text btn <%= quiz[i].Cevap3 == quiz[i].DogruCevap ? 'btn-success' : 'btn-warning'%>"><%= quiz[i].Cevap3 %></p> <br>
-                <p class="card-text btn <%= quiz[i].Cevap4 == quiz[i].DogruCevap ? 'btn-success' : 'btn-warning'%>"><%= quiz[i].Cevap4 %></p> <br>
+        <div class="row">
+            <div class="col-lg-3">
+                <h6>Kategori Listesi</h6>
+                <ul class="text-primary">
+                    <% for(let i in kategori){ %>
+                            <li>
+                                <%= kategori[i].name %>
+                            </li>
+                    <% } %>
+                    </ul>
+            </div>
+            <div class="col-lg-9">
+                <% for(let i = 0; i < quiz.length ; i++){ %> 
+                    <div data-aos="fade-down-right" class="card my-5 shadow">
+                        <div class="card-body">
+                            <h5><span class="text-danger">(<%= quiz[i].KategoriAdi %>)</span> <br> <%= quiz[i].SoruSayisi %>.Soru ) <%= quiz[i].SoruMetni %> </h5>
+                            <p class="card-text btn <%= quiz[i].Cevap1 == quiz[i].DogruCevap ? 'btn-success' : 'btn-warning'%>"><%= quiz[i].Cevap1 %></p> <br>
+                            <p class="card-text btn <%= quiz[i].Cevap2 == quiz[i].DogruCevap ? 'btn-success' : 'btn-warning'%>"><%= quiz[i].Cevap2 %></p> <br>
+                            <p class="card-text btn <%= quiz[i].Cevap3 == quiz[i].DogruCevap ? 'btn-success' : 'btn-warning'%>"><%= quiz[i].Cevap3 %></p> <br>
+                            <p class="card-text btn <%= quiz[i].Cevap4 == quiz[i].DogruCevap ? 'btn-success' : 'btn-warning'%>"><%= quiz[i].Cevap4 %></p> <br>
+                        </div>
+                    </div>
+                    <% } %>
             </div>
         </div>
-        <% } %>
     </div>
 
     <div class="container">

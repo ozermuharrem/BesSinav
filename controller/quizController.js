@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const QuizBank = require('../models/quizBank');
 const Quzi = require('../models/quizBank');
-
+const Kategori = require('../models/Kategori');
 
 exports.createQuiz = async (req,res) => {
     try {
@@ -20,9 +20,12 @@ exports.getAllQuiz = async (req,res) => {
     try {
        
         const quiz = await Quzi.find()
+        // const kategori = await Kategori.find()
+
         
         res.status(200).redirect('/quizPage', { 
             quiz,
+            // kategori
 
         });
     } catch (error) {

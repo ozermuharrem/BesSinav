@@ -7,6 +7,7 @@ const fs = require('fs');
 
 const pageRoute = require('./routes/pageRoute');
 const quizRoute = require('./routes/quizRoute');
+const kategoriRoute = require('./routes/kategoriRoute');
 
 
 const app = express();
@@ -35,6 +36,7 @@ app.use(express.urlencoded({extended : true}));
 
 app.use('/', pageRoute);
 app.use('/quiz', quizRoute);
+app.use('/kategori', kategoriRoute);
 
 
 const port = process.env.PORT || 5000;

@@ -1,7 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const slugify  = require('slugify');
+
 
 const quizBankSchema = new Schema ({
+    Kategori:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Kategori'
+    },
+    KategoriAdi:{
+        type : String
+    },
     SoruSayisi :
     {
         type:Number,
@@ -34,6 +43,14 @@ const quizBankSchema = new Schema ({
         trim : true
     }
 })
+
+// quizBankSchema.pre('validate',function(next){
+//     this.slug = slugify(this.KategoriAdi,{
+//         lower:true,
+//         strict:true
+//     })
+//     next();
+// })
 
 const QuizBank = mongoose.model('quiz',quizBankSchema);
 

@@ -1,5 +1,5 @@
 const QuizBank = require("../models/quizBank");
-
+const Kategori = require("../models/Kategori");
 
 exports.getIndexPage =async (req,res) => {
     const totalQuiz = await QuizBank.find().countDocuments();
@@ -12,6 +12,7 @@ exports.getQuizPage = async (req,res) => {
         const page = req.query.page || 1; // başlangıç sayfası veya ilk sayfa
         const quizPerPage = 20; // her sayfada bulunacak fotograf sayısı
         const totalQuiz = await QuizBank.find().countDocuments(); // toplam fotograf sayısı
+        const kategori = await Kategori.find();
         const quiz = await QuizBank.find()
         .sort('SoruSayisi')
         .skip((page -1 ) * quizPerPage) // pas geçmek için
@@ -20,7 +21,8 @@ exports.getQuizPage = async (req,res) => {
         res.status(200).render('quizPage', {
             quiz,
             current:page,
-            pages: Math.ceil(totalQuiz / quizPerPage)
+            pages: Math.ceil(totalQuiz / quizPerPage),
+            kategori
         })
     } catch (error) {
         res.status(400).json({
