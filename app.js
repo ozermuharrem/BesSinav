@@ -14,13 +14,9 @@ const app = express();
 
 //! connect db
 
-mongoose.connect('mongodb+srv://ozermuharrem:1OTvASjkU8shISVN@cluster0.ppgp7fz.mongodb.net/besSinav-Db?retryWrites=true&w=majority').then(() => {
+mongoose.connect('mongodb://localhost:27017/sinav-db').then(() => {
     console.log('db baglandı');
 })
-
-// mongoose.connect('mongodb://localhost/besSinav').then(() => {
-//     console.log('db baglandı');
-// })
 
 //!temp engine 
 
@@ -43,5 +39,3 @@ const port = process.env.PORT || 5000;
 app.listen(port, ()=>{
     console.log('server start'+" "+port);
 })
-
-//1OTvASjkU8shISVN
